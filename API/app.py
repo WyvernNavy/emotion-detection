@@ -5,13 +5,29 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 import io
 from tensorflow.keras.saving import register_keras_serializable
+import os
 
 @register_keras_serializable()
 def gray_to_rgb(x):
     return x  # Replace this with the actual function logic
 
 # Load the trained model
-model = load_model('emotion_model.h5')
+
+
+# Define the correct path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the absolute path to the model file
+model_path = os.path.join(current_dir, "emotion_model.h5")
+
+# Ensure the file exists before loading
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"Model file not found at: {model_path}")
+
+# Load the model
+model = load_model(model_path)
+
+
 
 # Define emotion labels (order must match training labels)
 EMOTIONS = ['happy', 'sad', 'angry', 'surprised', 'neutral']
