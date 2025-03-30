@@ -4,3 +4,4 @@ numpy
 opencv-python
 tensorflow
 pillow
+python-multipart
