@@ -11,6 +11,8 @@ import os
 def gray_to_rgb(x):
     return x  # Replace this with the actual function logic
 
+
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # Load the trained model
 
 
