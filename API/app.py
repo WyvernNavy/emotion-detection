@@ -4,7 +4,7 @@ import cv2
 from tensorflow.keras.models import load_model
 from PIL import Image
 import io
-from keras.saving import register_keras_serializable
+from tensorflow.keras.saving import register_keras_serializable
 
 @register_keras_serializable()
 def gray_to_rgb(x):
